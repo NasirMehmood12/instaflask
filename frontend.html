@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Post Monitor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        form {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            max-width: 400px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Instagram Monitor Login</h1>
+        <!-- Login Form -->
+        <form action="/login" method="POST">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" required><br><br>
+            
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+            
+            <button type="submit">Login</button>
+        </form>
+
+        <h2>Monitor Instagram Posts</h2>
+
+        <!-- Instagram Post Monitoring Form -->
+        <form action="/monitor" method="POST">
+            <label for="usernames">Instagram Usernames (comma separated):</label><br>
+            <input type="text" id="usernames" name="usernames" required><br><br>
+
+            <label for="sender_email">Sender Email:</label><br>
+            <input type="email" id="sender_email" name="sender_email" required><br><br>
+
+            <label for="app_password">App Password (Gmail):</label><br>
+            <input type="password" id="app_password" name="app_password" required><br><br>
+
+            <label for="recipient_email">Recipient Email:</label><br>
+            <input type="email" id="recipient_email" name="recipient_email" required><br><br>
+
+            <button type="submit">Start Monitoring</button>
+        </form>
+    </div>
+</body>
+</html>
