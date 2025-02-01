@@ -79,7 +79,7 @@
         <h2>Monitor Instagram Posts</h2>
 
         <!-- Instagram Post Monitoring Form -->
-        <form action="/monitor" method="POST">
+        <form id="monitor-form">
             <label for="usernames">Instagram Usernames (comma separated):</label><br>
             <input type="text" id="usernames" name="usernames" required><br><br>
 
@@ -92,8 +92,44 @@
             <label for="recipient_email">Recipient Email:</label><br>
             <input type="email" id="recipient_email" name="recipient_email" required><br><br>
 
-            <button type="submit">Start Monitoring</button>
+            <button type="button" onclick="sendMonitorRequest()">Start Monitoring</button>
         </form>
     </div>
+
+    <script>
+        function sendMonitorRequest() {
+            // Collect form data
+            var usernames = document.getElementById('usernames').value;
+            var sender_email = document.getElementById('sender_email').value;
+            var app_password = document.getElementById('app_password').value;
+            var recipient_email = document.getElementById('recipient_email').value;
+
+            // Create data object to send
+            var data = {
+                "usernames": usernames,
+                "sender_email": sender_email,
+                "app_password": app_password,
+                "recipient_email": recipient_email
+            };
+
+            // Make the POST request to the /monitor route with application/json content type
+            fetch('https://insta-flask-5.onrender.com/monitor', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert("Monitor request processed successfully!");
+                console.log(data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert("Error while processing the request.");
+            });
+        }
+    </script>
 </body>
 </html>
